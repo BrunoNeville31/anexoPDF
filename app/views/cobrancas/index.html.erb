@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-lg-12">
+  <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--md">
+                
+                
+            </div>
+            <div class="rs-select2--light rs-select2--sm">
+                
+                
+            </div>
+           
+        </div>
+        <div class="table-data__tool-right">            
+                <%= link_to new_cobranca_path, class: 'au-btn au-btn-icon au-btn--green au-btn--small' do %>
+                 <i class="zmdi zmdi-plus"></i>add item
+                 <% end %>
+            
+                    
+                     
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+
+                <tr>
+                    <th>Nome</th>
+                    <th>Path</th>
+                    <th>Data</th>
+                    <th class="text-right">Valor</th>
+                    <th class="text-right">Codigo</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+               <% @cobrancas.each do |cobranca| %>
+                <tr>
+                    <td><%= cobranca.user.first_name %></td>
+                    <td><a href="<%= cobranca.path %>"><%= cobranca.path %><a></td>
+                    <td><%= cobranca.data %></td>
+                    <td><%= cobranca.value %></td>
+                    <td><%= cobranca.code_id %></td>
+                </tr>
+                <% end %>      
+            </tbody>
+        </table>
+    </div>
+</div>

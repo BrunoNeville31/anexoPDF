@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cobranca.user_id %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @cobranca.path %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @cobranca.data %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @cobranca.value %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @cobranca.code_id %>
+</p>
+
+<%= link_to 'Edit', edit_cobranca_path(@cobranca) %> |
+<%= link_to 'Back', cobrancas_path %>

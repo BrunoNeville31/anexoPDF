@@ -1,0 +1,30 @@
+
+  <div class="card">
+    <div class="card-header">
+        <strong>Usuários para Cobrança</strong> 
+    </div>
+    <div class="card-body card-block">
+        <%= form_with(model: user, local: true) do |form| %>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-email" class=" form-control-label">Nome</label>
+                </div>
+                <div class="col-12 col-md-9">                    
+                    <%= form.text_field :first_name, placeholder: "Nome...", class: "form-control" %>                    
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-password" class=" form-control-label">CPF/CNPJ</label>
+                </div>
+                <div class="col-12 col-md-9">                 
+                    <%= form.text_field :cpf_cnpj, placeholder: "CPF/CNPJ...", class: "form-control" %>                    
+                </div>
+            </div>
+      
+        </div>
+    <div class="card-footer">       
+             <%= form.submit 'Salvar', class: "btn btn-primary btn-sm" %>
+       </div>
+  </div>
+<% end %>

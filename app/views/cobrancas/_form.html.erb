@@ -1,0 +1,62 @@
+
+  <% if cobranca.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cobranca.errors.count, "error") %> prohibited this cobranca from being saved:</h2>
+
+      <ul>
+      <% cobranca.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+      <div class="card-header">
+          <strong>Cadastro de Cobranças</strong> 
+      </div>
+      <div class="card-body card-block">
+         
+              
+         <%= form_with(url: cobrancas_pdf_path, model: cobranca, method: :post) do |form| %>
+              <div class="input-group">
+                  <%= form.file_field :pdf, class: 'form-control' %>
+                  <div class="input-group-btn">
+                     <%= form.submit 'Ler arquivo', class: 'btn btn-primary' %>
+                  </div>
+              </div>
+         <% end %>
+         <%= form_with(model: cobranca, local: true) do |form| %>
+
+              <div class="form-group">
+                  <label for="nf-email" class=" form-control-label">Usuário</label>
+                  <%= form.collection_select(:user_id, set_user, :id, :first_name, {}, {class: "form-control"}) %>
+                  
+              </div>
+              <div class="form-group">
+                  <label for="nf-password" class=" form-control-label">Path</label>
+                   <%= form.text_field :path, class: "form-control", placeholder: "#{@local}", id: 'path' %>                 
+              </div> 
+
+            <div class="row form-group">              
+              <div class="col-6">
+                <label for="nf-password" class=" form-control-label">Data</label>
+                  <%= form.date_field :data, class: 'form-control', id: 'data' %>
+              </div>
+
+              <div class="col-6">
+                <label for="nf-password" class=" form-control-label">Valor</label>
+                  <%= form.text_field :value, class: 'form-control', value: "#{@valor}", id: 'value'  %>                 
+              </div>
+            </div>
+            <div class="form-group">
+                  <label for="nf-password" class=" form-control-label">Codigo Identificador</label>
+                 <%= form.text_field :code_id, class: 'form-control', value: "#{@codigo}", id: 'code' %>               
+              </div>
+        
+      </div>
+      <div class="card-footer">      
+        <%= form.submit 'Salvar', class: 'btn btn-primary btn-s' %>             
+      </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  path: MyString
+  data: 2020-01-27 22:42:14
+  value: 1.5
+  code_id: MyString
+
+two:
+  nome: MyString
+  path: MyString
+  data: 2020-01-27 22:42:14
+  value: 1.5
+  code_id: MyString
